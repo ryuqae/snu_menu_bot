@@ -1,5 +1,3 @@
-from logging import logMultiprocessing
-import re
 import requests
 from bs4 import BeautifulSoup
 import unicodedata
