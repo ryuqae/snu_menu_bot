@@ -63,8 +63,6 @@ def send_menu(chat_id: str, date: date, interest: list, meal: str) -> None:
     return date_text
 
 
-# f"{emo('house_with_garden')}{emo('fork_and_knife')}          {emo('running')}{emo('runner')}{emo('dash')}"
-
 if __name__ == "__main__":
     today = date.today()
     interest = ("학생회관식당", "3식당", "두레미담")
