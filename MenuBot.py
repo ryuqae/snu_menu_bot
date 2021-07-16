@@ -18,6 +18,7 @@ with open("token.txt", "r") as f:
     token = f.readline()
 
 emo = lambda x: emojize(f":{x}:", use_aliases=True)
+ending = f"‾͟͟͞((({emo('fork_and_knife')}ˋ⁻̫ˊ)—̳͟͞͞{emo('fork_and_knife')}               {emo('meat_on_bone')}"
 
 
 def get_menu(date: date, meal: str) -> list:
@@ -56,11 +57,13 @@ def send_menu(chat_id: str, date: date, interest: list, meal: str) -> None:
         bot.send_message(chat_id=chat_id, text=text, parse_mode="Markdown")
     bot.send_message(
         chat_id=chat_id,
-        text=f"{emo('house_with_garden')}{emo('fork_and_knife')}          {emo('running')}{emo('runner')}{emo('dash')}",
+        text=ending,
         parse_mode="Markdown",
     )
-    pass
+    return date_text
 
+
+# f"{emo('house_with_garden')}{emo('fork_and_knife')}          {emo('running')}{emo('runner')}{emo('dash')}"
 
 if __name__ == "__main__":
     today = date.today()
@@ -68,4 +71,5 @@ if __name__ == "__main__":
     meal = args.meal
     chat_id = "@snumenu"
 
-    send_menu(chat_id=chat_id, date=today, interest=interest, meal=meal)
+    success = send_menu(chat_id=chat_id, date=today, interest=interest, meal=meal)
+    print(f"{success} - Message was sent!")
